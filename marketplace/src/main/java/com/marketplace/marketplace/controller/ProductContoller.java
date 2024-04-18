@@ -17,14 +17,14 @@ public class ProductContoller {
     private ProductService productService;
 
     @PostMapping(IProductEndPoint.PRODUCT_CREATE_URL)
-    public ResponseEntity<ProductDTO> crearProduct(@RequestBody ProductDTO productDTO) {
+    public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDTO) {
         ProductDTO newProductEntity = productService.createProduct(productDTO);
         return new ResponseEntity<>(newProductEntity, HttpStatus.CREATED);
     }
 
     @GetMapping(IProductEndPoint.PRODUCT_GET_URL)
     public ResponseEntity<ProductDTO> productById(@PathVariable("id") Long id){
-        ProductDTO productDTO = productService.findById(id);
+        ProductDTO productDTO = productService.productById(id);
         return new ResponseEntity<ProductDTO>(productDTO, HttpStatus.OK);
     }
 

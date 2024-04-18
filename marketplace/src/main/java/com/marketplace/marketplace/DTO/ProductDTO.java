@@ -1,7 +1,9 @@
 package com.marketplace.marketplace.DTO;
 
-import com.marketplace.marketplace.DTO.enums.Type;
-import com.marketplace.marketplace.DTO.enums.TypeProduct;
+import com.marketplace.marketplace.DTO.enums.Color;
+import com.marketplace.marketplace.DTO.enums.Talle;
+import com.marketplace.marketplace.DTO.enums.TypeMarc;
+import jakarta.persistence.Column;
 import lombok.*;
 
 @Data
@@ -15,9 +17,8 @@ public class ProductDTO {
   private String image;
   private String description;
   private Double price;
-  private Integer amount;
-  private TypeProduct typeProduct;
-  private Type type;
-
-
+  private TypeMarc typeMarc;
+  private Talle talle;
+  private Boolean offer = false;
+  private Color color;
 }

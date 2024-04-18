@@ -1,10 +1,7 @@
 package com.marketplace.marketplace.mapper;
 
 import com.marketplace.marketplace.DTO.ProductDTO;
-import com.marketplace.marketplace.DTO.enums.Type;
-import com.marketplace.marketplace.DTO.enums.TypeProduct;
 import com.marketplace.marketplace.model.ProductEntity;
-import jakarta.persistence.Column;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,9 +12,10 @@ public class ProductMapper {
                 .image(productDTO.getImage())
                 .description(productDTO.getDescription())
                 .price(productDTO.getPrice())
-                .amount(productDTO.getAmount())
-                .typeProduct(productDTO.getTypeProduct())
-                .type(productDTO.getType())
+                .typeMarc(productDTO.getTypeMarc())
+                .talle(productDTO.getTalle())
+                .offer(productDTO.getOffer())
+                .color(productDTO.getColor())
                 .build();
     }
 
@@ -27,11 +25,13 @@ public class ProductMapper {
         productDTO.setImage(productEntity.getImage());
         productDTO.setDescription(productEntity.getDescription());
         productDTO.setPrice(productEntity.getPrice());
-        productDTO.setAmount(productEntity.getAmount());
-        productDTO.setTypeProduct(productEntity.getTypeProduct());
-        productDTO.setType(productEntity.getType());
+        productDTO.setTypeMarc(productEntity.getTypeMarc());
+        productDTO.setTalle(productEntity.getTalle());
+        productDTO.setOffer(productEntity.getOffer());
+        productDTO.setColor(productEntity.getColor());
         return productDTO;
     }
+
 }
 
 

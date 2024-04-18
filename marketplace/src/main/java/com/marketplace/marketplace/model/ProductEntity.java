@@ -1,7 +1,8 @@
 package com.marketplace.marketplace.model;
 
-import com.marketplace.marketplace.DTO.enums.Type;
-import com.marketplace.marketplace.DTO.enums.TypeProduct;
+import com.marketplace.marketplace.DTO.enums.Color;
+import com.marketplace.marketplace.DTO.enums.Talle;
+import com.marketplace.marketplace.DTO.enums.TypeMarc;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,8 +23,9 @@ public class ProductEntity {
     private String image;
     private String description;
     private Double price;
-    private Integer amount;
-    @Column(name = "type_product")
-    private TypeProduct typeProduct;
-    private Type type;
+    private Talle talle;
+    private Boolean offer = false;
+    private Color color;
+    @Column(name = "type_marc")
+    private TypeMarc typeMarc;
 }
