@@ -19,8 +19,7 @@ public class ProductValidation {
     }
 
     public static void productTotalValidation(ProductEntity productEntity){
-        if (productEntity.getId() == null ||
-                productEntity.getDescription() == null ||
+        if (   productEntity.getDescription() == null ||
                 productEntity.getPrice() == null ||
                 productEntity.getPrice() <= 0) {
             throw new ProductAttributesFormatException("Incorrect format or empty attribute");
@@ -45,11 +44,6 @@ public class ProductValidation {
         ) {
             throw new ProductEqualException("The request failed because the product is equal, it doesn't have different values");
         }
-    }
-
-    public static void productIdValidation(Optional<ProductEntity> otherProduct){
-        if(otherProduct.isPresent())
-            throw new ProductIdExistException("There is a product with the same name in the data base");
     }
 
     public static void productValidation(Optional<ProductEntity> otherProduct, Long id){

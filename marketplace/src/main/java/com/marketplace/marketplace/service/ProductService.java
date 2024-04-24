@@ -46,13 +46,17 @@ public class ProductService {
                  .collect(Collectors.toList());
 
      }
-
-    public ProductDTO updateProduct(Long id, @Valid @NotNull ProductDTO productDTO) {
+    public ProductDTO updateProduct(Long id, ProductDTO productDTO) {
         Optional<ProductEntity> existingProduct = productRepository.findById(id);
-        if (existingProduct.isEmpty()) {
-            throw new NotFoundException("Product not found");
-        }
+        ProductValidation.productEmptyValidation(existingProduct);
+        ProductEntity productEntity = productMapper.mapDtoToEntity(productDTO);
+        ProductValidation.productEqualValidation(existingProduct, productEntity);
+         Optional<ProductEntity> otherProduct = productRepository.findById(id);
+        otherProduct = productRepository.findById(id);
+        ProductValidation.productValidation(otherProduct, id);
+        ProductValidation.productTotalValidation(productEntity);
         ProductEntity product = existingProduct.get();
+        product.setId(id);
         product.setNameProduct(productDTO.getNameProduct());
         product.setImage(productDTO.getImage());
         product.setDescription(productDTO.getDescription());
@@ -62,7 +66,6 @@ public class ProductService {
         product.setOffer(productDTO.getOffer());
         product.setColor(productDTO.getColor());
 
-        System.out.println("product" + product);
         return productMapper.mapEntityToDto(productRepository.save(product));
     }
 
