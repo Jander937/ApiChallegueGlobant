@@ -30,20 +30,26 @@ public class ProductContoller {
 
     @GetMapping(IProductEndPoint.PRODUCT_GET_ALL_URL)
     public ResponseEntity<List<ProductDTO>> productGetAll(){
-        List<ProductDTO> productDTO = productService.productGetAll();
+        List<ProductDTO> productDTOList = productService.productGetAll();
+        return ResponseEntity.ok(productDTOList);
+    }
+    @PatchMapping(IProductEndPoint.PRODUCT_DEACTIVATE_URL)
+    public ResponseEntity<ProductDTO> deactivateProduct(@PathVariable("id") Long id) {
+        ProductDTO productDTO = productService.desactiveProduct(id);
         return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }
 
-    @PostMapping(IProductEndPoint.PRODUCT_UPDATE_URL)
+
+    @PutMapping(IProductEndPoint.PRODUCT_UPDATE_URL)
     public ResponseEntity<ProductDTO> updateProduct(@PathVariable("id") Long id, @RequestBody ProductDTO productDTO){
-        ProductDTO productDTO1 = ProductService.updateProduct(id, productDTO);
+        ProductDTO productDTO1 = productService.updateProduct(id, productDTO);
         return new ResponseEntity<>(productDTO1, HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping(IProductEndPoint.PRODUCT_DELETE_URL)
     public ResponseEntity<ProductDTO> deleteProduct(@PathVariable("id") Long id){
         ProductDTO productDTO = productService.deleteProduct(id);
-        return new ResponseEntity<ProductDTO>(productDTO, HttpStatus.NO_CONTENT);
+        return new ResponseEntity<ProductDTO>(productDTO, HttpStatus.OK);
     }
 
 }

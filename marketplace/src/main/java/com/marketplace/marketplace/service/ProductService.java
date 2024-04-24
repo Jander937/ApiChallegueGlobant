@@ -1,16 +1,21 @@
 package com.marketplace.marketplace.service;
-
 import com.marketplace.marketplace.DTO.ProductDTO;
+import com.marketplace.marketplace.endPoinst.response.IResponse;
+import com.marketplace.marketplace.exception.NotFoundException;
 import com.marketplace.marketplace.mapper.ProductMapper;
 import com.marketplace.marketplace.model.ProductEntity;
 import com.marketplace.marketplace.repository.IProductRepository;
 import com.marketplace.marketplace.validation.ProductValidation;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-
+import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @ControllerAdvice
 @Service
@@ -24,7 +29,6 @@ public class ProductService {
 
      public ProductDTO createProduct(ProductDTO productDTO){
          ProductEntity productEntity  = productMapper.mapDtoToEntity(productDTO);
-         ProductValidation.productPresentValidation(productRepository.findById(productEntity.getId()), productEntity.getId());
          ProductEntity saveProduct = productRepository.save(productEntity);
          return productMapper.mapEntityToDto(saveProduct);
      }
@@ -36,20 +40,51 @@ public class ProductService {
      }
 
      public List<ProductDTO> productGetAll(){
+         List<ProductEntity> products = (List<ProductEntity>) productRepository.findAll();
+         return products.stream()
+                 .map(productMapper::mapEntityToDto)
+                 .collect(Collectors.toList());
 
-         return null;
      }
 
-     public static ProductDTO updateProduct(Long id, ProductDTO productDTO){
+    public ProductDTO updateProduct(Long id, @Valid @NotNull ProductDTO productDTO) {
+        Optional<ProductEntity> existingProduct = productRepository.findById(id);
+        if (existingProduct.isEmpty()) {
+            throw new NotFoundException("Product not found");
+        }
+        ProductEntity product = existingProduct.get();
+        product.setNameProduct(productDTO.getNameProduct());
+        product.setImage(productDTO.getImage());
+        product.setDescription(productDTO.getDescription());
+        product.setPrice(productDTO.getPrice());
+        product.setTypeMarc(productDTO.getTypeMarc());
+        product.setTalle(productDTO.getTalle());
+        product.setOffer(productDTO.getOffer());
+        product.setColor(productDTO.getColor());
 
+        System.out.println("product" + product);
+        return productMapper.mapEntityToDto(productRepository.save(product));
+    }
 
-
-         return null;
+    public ProductDTO desactiveProduct(Long id){
+         Optional<ProductEntity> result = this.productRepository.findById(id);
+         if(result.isPresent()){
+             result.get().setOffer((!result.get().getOffer()));
+             return productMapper.mapEntityToDto(this.productRepository.save(result.get()));
+         }
+         else{
+             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format(IResponse.NOT_FOUND));
+         }
      }
 
      public ProductDTO deleteProduct(Long id){
-
-
-         return null;
+        Optional<ProductEntity> result = this.productRepository.findById(id);
+         if(result.isPresent()){
+             ProductEntity deletedProduct = result.get();
+             this.productRepository.deleteById(id);
+             return productMapper.mapEntityToDto(deletedProduct);
+         } else {
+             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format(IResponse.NOT_FOUND));
+         }
      }
 }
