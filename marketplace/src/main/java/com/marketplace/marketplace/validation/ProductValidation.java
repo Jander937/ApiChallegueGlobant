@@ -1,12 +1,10 @@
 package com.marketplace.marketplace.validation;
 
-import com.marketplace.marketplace.DTO.enums.Color;
-import com.marketplace.marketplace.DTO.enums.Talle;
-import com.marketplace.marketplace.DTO.enums.TypeMarc;
 import com.marketplace.marketplace.exception.*;
 import com.marketplace.marketplace.model.ProductEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
+import java.util.List;
 import java.util.Optional;
 
 @ControllerAdvice
@@ -43,6 +41,12 @@ public class ProductValidation {
                 existingProduct.get().getColor().equals(productEntity.getColor())
         ) {
             throw new ProductEqualException("The request failed because the product is equal, it doesn't have different values");
+        }
+    }
+
+    public static void productColorValidation(List<ProductEntity> product){
+        if (product.isEmpty()) {
+            throw new ProductEmptyException("No products found with the specified color");
         }
     }
 

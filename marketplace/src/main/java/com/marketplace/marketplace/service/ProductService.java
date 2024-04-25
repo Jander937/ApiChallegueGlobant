@@ -1,5 +1,6 @@
 package com.marketplace.marketplace.service;
 import com.marketplace.marketplace.DTO.ProductDTO;
+import com.marketplace.marketplace.DTO.enums.Color;
 import com.marketplace.marketplace.endPoinst.response.IResponse;
 import com.marketplace.marketplace.exception.NotFoundException;
 import com.marketplace.marketplace.mapper.ProductMapper;
@@ -7,6 +8,7 @@ import com.marketplace.marketplace.model.ProductEntity;
 import com.marketplace.marketplace.repository.IProductRepository;
 import com.marketplace.marketplace.validation.ProductValidation;
 import jakarta.validation.Valid;
+import jakarta.validation.Validation;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,7 +40,13 @@ public class ProductService {
          ProductValidation.productEmptyValidation(product);
          return productMapper.mapEntityToDto(product.get());
      }
-
+    public List<ProductDTO> productGetByColor(Color color){
+        List<ProductEntity> product = productRepository.findByColor(color);
+        ProductValidation.productColorValidation(product);
+        return product.stream()
+                .map(productMapper::mapEntityToDto)
+                .collect(Collectors.toList());
+    }
      public List<ProductDTO> productGetAll(){
          List<ProductEntity> products = (List<ProductEntity>) productRepository.findAll();
          return products.stream()
@@ -46,12 +54,13 @@ public class ProductService {
                  .collect(Collectors.toList());
 
      }
+
     public ProductDTO updateProduct(Long id, ProductDTO productDTO) {
         Optional<ProductEntity> existingProduct = productRepository.findById(id);
         ProductValidation.productEmptyValidation(existingProduct);
         ProductEntity productEntity = productMapper.mapDtoToEntity(productDTO);
         ProductValidation.productEqualValidation(existingProduct, productEntity);
-         Optional<ProductEntity> otherProduct = productRepository.findById(id);
+         Optional<ProductEntity> otherProduct;
         otherProduct = productRepository.findById(id);
         ProductValidation.productValidation(otherProduct, id);
         ProductValidation.productTotalValidation(productEntity);

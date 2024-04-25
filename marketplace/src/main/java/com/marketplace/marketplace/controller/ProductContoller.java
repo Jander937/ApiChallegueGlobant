@@ -1,6 +1,7 @@
 package com.marketplace.marketplace.controller;
 
 import com.marketplace.marketplace.DTO.ProductDTO;
+import com.marketplace.marketplace.DTO.enums.Color;
 import com.marketplace.marketplace.endPoinst.IProductEndPoint;
 import com.marketplace.marketplace.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -42,6 +43,17 @@ public class ProductContoller {
         ProductDTO productDTO = productService.productById(id);
         return new ResponseEntity<ProductDTO>(productDTO, HttpStatus.OK);
     }
+    @Operation(summary = "Get products by color", description = "Retrieve a list of products by color")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "List of products by color retrieved successfully")
+    })
+
+    @GetMapping(IProductEndPoint.PRODUCT_GET_BY_COLOR_URL)
+    public ResponseEntity<List<ProductDTO>> productGetByColor(@RequestParam("color") String color){
+        List<ProductDTO> productDTOList = productService.productGetByColor(Color.valueOf(color));
+        return ResponseEntity.ok(productDTOList);
+    }
+
 
     @Operation(summary = "Get all products", description = "Retrieve a list of all products")
     @ApiResponses(value = {

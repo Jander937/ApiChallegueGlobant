@@ -8,4 +8,5 @@ public interface IProductEndPoint {
     String PRODUCT_DEACTIVATE_URL = "/{id}";
     String PRODUCT_DELETE_URL = "/{id}";
     String PRODUCT_GET_URL = "/{id}";
+   String PRODUCT_GET_BY_COLOR_URL = "";
 }
