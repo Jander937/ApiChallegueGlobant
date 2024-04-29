@@ -21,5 +21,5 @@ COPY --from=build /home/app/target/marketplace-0.0.1-SNAPSHOT.jar /usr/local/lib
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación Spring Boot cuando se inicia el contenedor
-CMD ["java", "-jar", "/local/lib/marketplace.jar"]
+CMD ["java", "-jar"]
 
