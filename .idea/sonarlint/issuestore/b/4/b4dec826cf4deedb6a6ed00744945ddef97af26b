@@ -1,0 +1,7 @@
+
+W
+java:S4973("<Strings and Boxed types should be compared using "equals()".(Åüˆàùÿÿÿÿ
+y
+java:S3655""^Call "existingProduct.isPresent()" or "!existingProduct.isEmpty()" before accessing the value.(”°­ªıÿÿÿÿ
+P
+java:S1118":Add a private constructor to hide the implicit public one.( š„á

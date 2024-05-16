@@ -18,7 +18,8 @@ import java.util.List;
 @RestController
 @RequestMapping(IProductEndPoint.PRODUCT_BASE_URL)
 @Tag(name = "Zone Shoes", description = "Endpoints for managing products")
-public class ProductContoller {
+public class ProductController {
+
     @Autowired
     private ProductService productService;
 

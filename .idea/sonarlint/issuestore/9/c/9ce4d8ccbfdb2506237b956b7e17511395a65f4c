@@ -1,0 +1,22 @@
+
+Š
+java:S3655)"NCall "product.isPresent()" or "!product.isEmpty()" before accessing the value.(üäÆÉJ$75174572-1161-4941-917e-1b700c690081
+Ÿ
+java:S3655C"^Call "existingProduct.isPresent()" or "!existingProduct.isEmpty()" before accessing the value.(ş•¨¬ÿÿÿÿÿJ$39ebb4a4-031f-4e27-92de-6b08cb51be20
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$bbc9ad85-9184-4bb5-882b-b3de4c9b4996
+~
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$c8028a90-f1ed-4d22-8d22-9122fbcf8acd
+
+java:S62040"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹J$8fdc5bbc-a0f1-4201-9271-b1047acf74fe
+
+java:S62046"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹J$97c7f94c-bf84-460f-88df-5086994b7a9c
+
+java:S1128"TRemove this unused import 'com.marketplace.marketplace.exception.NotFoundException'.(éÅÆ¡J$b6bc8168-e7d0-417f-88a3-fd489087b92b
+v
+java:S1128
+"5Remove this unused import 'jakarta.validation.Valid'.(ÀãÅ”ûÿÿÿÿJ$a218cec7-e51f-4b25-8bdf-5df28b059648
+v
+java:S1128":Remove this unused import 'jakarta.validation.Validation'.(ÅÒ—–J$a448a872-b2ec-4782-a24f-0066fe3980d7
+„
+java:S1128"CRemove this unused import 'jakarta.validation.constraints.NotNull'.(Àª•ıÿÿÿÿJ$6d0c2b83-a48f-45c9-978c-dab12247a78f
