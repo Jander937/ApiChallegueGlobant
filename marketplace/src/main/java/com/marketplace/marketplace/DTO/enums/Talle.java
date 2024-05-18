@@ -18,4 +18,5 @@ public enum Talle {
     public int getValorNumerico() {
         return valorNumerico;
     }
+
 }

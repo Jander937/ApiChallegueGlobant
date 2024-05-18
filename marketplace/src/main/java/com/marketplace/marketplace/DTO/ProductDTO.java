@@ -13,6 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO {
+  private Long id;
   private String nameProduct;
   private String image;
   private String description;
@@ -21,4 +22,5 @@ public class ProductDTO {
   private Talle talle;
   private Boolean offer = false;
   private Color color;
+
 }

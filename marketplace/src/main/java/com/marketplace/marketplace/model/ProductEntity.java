@@ -29,4 +29,5 @@ public class ProductEntity {
     private Color color;
     @Column(name = "type_marc")
     private TypeMarc typeMarc;
+
 }
