@@ -1,1 +1,10 @@
+com\marketplace\marketplace\endPoinst\IProductEndPointTest.class
+com\marketplace\marketplace\repository\IProductRepositoryTest.class
+com\marketplace\marketplace\mapper\ProductMapperTest.class
+com\marketplace\marketplace\service\ProductServiceTest.class
 com\marketplace\marketplace\MarketplaceApplicationTests.class
+com\marketplace\marketplace\exception\ExceptionTests.class
+com\marketplace\marketplace\validation\ProductValidationTest.class
+com\marketplace\marketplace\DTO\ProductDTOTest.class
+com\marketplace\marketplace\controller\ProductControllerTest.class
+com\marketplace\marketplace\model\ProductEntityTest.class

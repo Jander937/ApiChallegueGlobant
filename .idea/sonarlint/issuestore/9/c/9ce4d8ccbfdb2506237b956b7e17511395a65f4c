@@ -1,0 +1,28 @@
+
+¦
+java:S3655O"^Call "existingProduct.isPresent()" or "!existingProduct.isEmpty()" before accessing the value.(þ•¨¬ÿÿÿÿÿ8¢ÿþÈø1J$ccd1c8a8-b91b-4cd3-8b26-7b52a8ca6748
+‘
+java:S36555"NCall "product.isPresent()" or "!product.isEmpty()" before accessing the value.(üäÆÉ8 ÿþÈø1J$18db2e1d-3667-48cd-891c-19a80cf754d7
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8Òœ¹Çø1J$52f40bcb-7953-4cc5-a56c-ba271c9ae8b6
+…
+java:S6813 "BRemove this field injection and use constructor injection instead.(êæÄÞ8Òœ¹Çø1J$5f06a552-d06d-416c-946c-7a40cd15663f
+•
+java:S6204<"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Ùœ¹Çø1J$e5445589-2ec5-4d37-ae12-4fff40a73b04
+•
+java:S6204B"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Ûœ¹Çø1J$d4a8ea09-e8e8-487f-bb0f-e6b47a4149da
+—
+java:S1128"TRemove this unused import 'com.marketplace.marketplace.exception.NotFoundException'.(éÅÆ¡8£ÿÈø1J$b1fab388-7441-4e61-9a9a-873d939b753f
+}
+java:S1128
+"5Remove this unused import 'jakarta.validation.Valid'.(ÀãÅ”ûÿÿÿÿ8£ÿÈø1J$5dee24d6-c5af-47e0-b241-d55490c474cf
+}
+java:S1128":Remove this unused import 'jakarta.validation.Validation'.(ÅÒ—–8£ÿÈø1J$8e9c14cc-a745-4907-87de-29e5ad9f1e16
+‹
+java:S1128"CRemove this unused import 'jakarta.validation.constraints.NotNull'.(Àª•ýÿÿÿÿ8£ÿÈø1J$e572a306-60ec-4186-a916-360d8176466a
+z
+java:S1128"7Remove this unused import 'org.junit.jupiter.api.Test'.(Öºˆß8£ÿÈø1J$b01f1ac1-badf-436b-ad40-07b68d39b9e4
+’
+java:S1128"JRemove this unused import 'org.junit.jupiter.api.Assertions.assertEquals'.(ÚÈˆòÿÿÿÿÿ8ƒ£ÿÈø1J$750ab2b3-a257-4927-a2cb-e407c0a318a0
+}
+java:S1068#"5Remove this unused "productValidation" private field.(Ë°§«þÿÿÿÿ8¤îýÈø1J$038ab065-d0a6-4f33-a467-cb658f1aa935

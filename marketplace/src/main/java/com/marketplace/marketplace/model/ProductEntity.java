@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
+@Data
 @Setter
 @ToString
 @NoArgsConstructor
@@ -28,4 +29,5 @@ public class ProductEntity {
     private Color color;
     @Column(name = "type_marc")
     private TypeMarc typeMarc;
+
 }
